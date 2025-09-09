@@ -6,8 +6,8 @@ export default class UserDto {
     public email: string;
     public dpi: string;
     public name: string;
-    public age: number; 
-    public isValid: boolean;
+    public age: string; 
+    public isValid: string;
 
     constructor(data: User){
         this.id = data.get_Id();

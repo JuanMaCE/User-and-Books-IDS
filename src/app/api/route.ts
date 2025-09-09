@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import UserCreator from "../utils/user-creator";
 import SupabaseUserRepository from "../utils/supabase-user-repository";
 
-export async function POST(request: NextResponse) {
+export async function POST(request: NextRequest) {
     try{
         const data = await request.json();
 

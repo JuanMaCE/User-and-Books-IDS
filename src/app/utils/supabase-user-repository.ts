@@ -12,7 +12,16 @@ export default class SupabaseUserRepository implements UserRepository{
 
     async save(user: User){
         try{
-            await this.sql``;
+            const userdto = user.toPrimitives();
+            const email = userdto.email;
+            const dpi = userdto.dpi;
+            const name = userdto.name;
+            const age = userdto.age;
+            const isValid = userdto.isValid;
+
+            await this.sql`
+                INSERT INTO "Users" (email, dpi, name, age, isValid)
+                VALUES (${email}, ${dpi}, ${name}, ${age}, ${isValid});`;
         }catch{
             throw new Error("Failed to save email");
         }
@@ -20,6 +29,7 @@ export default class SupabaseUserRepository implements UserRepository{
 
     async find(id: string){
         try{
+            await this.sql`SELECT * FROM "Users" WHERE id=${id}`;
         } catch {
             throw new Error("User not found");
         }

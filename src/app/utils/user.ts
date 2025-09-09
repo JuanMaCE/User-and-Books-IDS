@@ -91,11 +91,11 @@ export class User {
     return this.name['value'];
   }
 
-  public get_Age(): number {
+  public get_Age(): string {
     return this.age['value'];
   }
 
-  public get_IsValid(): boolean {
+  public get_IsValid(): string {
     return this.isValid['value'];
   } 
 
