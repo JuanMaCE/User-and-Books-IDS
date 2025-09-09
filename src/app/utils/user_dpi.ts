@@ -1,19 +1,24 @@
 export default class UserDPI {
-    private _dpi: string;
+    private value: string;
 
-    constructor(dpi: string) {
-        this._dpi = dpi;
+    constructor(value: string) {
+        const validate = this.isValid(value);
+        if (validate) {
+            this.value = value;
+        } else {
+            throw new Error('DPI is not valid');
+        }
+
     }
 
-    private isValidDpi(dpi: string): boolean {
-        return typeof dpi === 'string' && dpi.length === 13;
+    
+    private isValid(dpi: string): boolean {
+        try {        
+            const number = parseInt(dpi, 10);
+            return dpi.length === 13 && !isNaN(number);
+        } catch (error) {
+            return false;
+        }
     }
 
-    public get value(): string {
-        return this._dpi;
-    }
-
-    public isValid(): boolean {
-        return this.isValidDpi(this._dpi);
-    }
 }
