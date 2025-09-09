@@ -1,12 +1,14 @@
 export default class UserAge {
-    private value: number;
+    private value: string;
 
-    constructor(value: number) {
+    constructor(value: string) {
         this.isValid(value);
         this.value = value;
     }
 
-    private isValid(age: number): boolean {
-        return age > 0 && typeof age === 'number';
+    private isValid(age: string) {
+        if (parseInt(age) < 12){
+            throw new Error("Edad No Valida");
+        }
     }
 }

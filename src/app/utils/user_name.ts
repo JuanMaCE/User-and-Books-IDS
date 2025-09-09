@@ -6,7 +6,9 @@ export default class UserName {
         this.value = value;
     }
 
-    private isValid(name: string): boolean {
-        return name.length > 3 && typeof name === 'string';
+    private isValid(name: string) {
+        if(name.length < 3 && typeof name !== 'string'){
+            throw new Error("Formato de nombre no valido");
+        }
     }
 }

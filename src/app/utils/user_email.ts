@@ -6,7 +6,9 @@ export default class UserEmail {
         this.value = value;
     }
 
-    private isValid(email: string): boolean {
-        return email.includes('@') || email.includes('.')
+    private isValid(email: string) {
+        if (!email.includes('@') || !email.includes('.')){
+            throw new Error("Formato de Email No Valido");
+        }
     }
 }

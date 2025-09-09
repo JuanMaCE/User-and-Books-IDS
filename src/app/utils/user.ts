@@ -16,19 +16,19 @@ export class User {
   private isValid: UserIsValid;
 
   constructor(
-    id: string,
-    email: string,
-    dpi: string,
-    name: string,
-    age: number,
-    isValid: boolean
+    id: UserId,
+    email: UserEmail,
+    dpi: UserDpi,
+    name: UserName,
+    age: UserAge,
+    isValid: UserIsValid
   ) {
-    this.id = new UserId(id);
-    this.email = new UserEmail(email);
-    this.dpi = new UserDpi(dpi);
-    this.name = new UserName(name);
-    this.age = new UserAge(age);
-    this.isValid = new UserIsValid(isValid);
+    this.id = id
+    this.email = email
+    this.dpi = dpi
+    this.name = name
+    this.age = age
+    this.isValid = isValid
   }
 
   
@@ -38,16 +38,16 @@ export class User {
     email: string;
     dpi: string;
     name: string;
-    age: number;
-    isValid: boolean;
+    age: string;
+    isValid: string;
   }): User {
     return new User(
-      params.id,
-      params.email,
-      params.dpi,
-      params.name,
-      params.age,
-      params.isValid
+      new UserId(params.id),
+      new UserEmail(params.email),
+      new UserDpi(params.dpi),
+      new UserName(params.name),
+      new UserAge(params.age),
+      new UserIsValid(params.isValid)
     );
   }
 
@@ -56,16 +56,16 @@ export class User {
     email: string;
     dpi: string;
     name: string;
-    age: number;
-    isValid: boolean;
+    age: string;
+    isValid: string;
   }): User {
     return new User(
-      params.id,
-      params.email,
-      params.dpi,
-      params.name,
-      params.age,
-      params.isValid
+      new UserId(params.id),
+      new UserEmail(params.email),
+      new UserDpi(params.dpi),
+      new UserName(params.name),
+      new UserAge(params.age),
+      new UserIsValid(params.isValid)
     );
   }
 

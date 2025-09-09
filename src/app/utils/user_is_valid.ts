@@ -1,7 +1,7 @@
 export default class UserIsValid {
-    private value: boolean;
+    private value: string;
 
-    constructor(value: boolean) {
+    constructor(value: string) {
         this.value = value;
     }
     

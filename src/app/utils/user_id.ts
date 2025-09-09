@@ -6,7 +6,9 @@ export default class UserId {
         this.value = value;
     }
 
-    private isValid(id: string): boolean {
-        return typeof id === 'string' && id.length > 0;
+    private isValid(id: string) {
+        if(id.length < 1 && typeof id !== 'string'){
+            throw new Error("ID invalido");
+        }
     }
 }
