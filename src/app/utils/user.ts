@@ -5,6 +5,7 @@ import UserDpi from './user_dpi';
 import UserName from './user_name';
 import UserAge from './user_age';
 import UserIsValid from './user_is_valid'; 
+import UserDto from './user-dto';
 
 
 export class User {
@@ -69,15 +70,33 @@ export class User {
     );
   }
 
-  public toPrimitives(): object {
-
-    return {
-      id: this.id,
-      email: this.email,
-      dpi: this.dpi,
-      name: this.name,
-      age: this.age,
-      isValid: this.isValid,
-    };
+  public toPrimitives(): UserDto {
+    const NewDto = new userDto(this);
+    return NewDto;
   }
+
+  public get_Id(): string {
+    return this.id['value'];
+  }
+
+  public get_Email(): string {
+    return this.email['value'];
+  }
+
+  public get_Dpi(): string {
+    return this.dpi['value'];
+  }
+
+  public get_Name(): string {
+    return this.name['value'];
+  }
+
+  public get_Age(): number {
+    return this.age['value'];
+  }
+
+  public get_IsValid(): boolean {
+    return this.isValid['value'];
+  } 
+
 }
