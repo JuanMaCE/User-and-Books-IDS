@@ -1,19 +1,12 @@
 export default class UserEmail {
-    private _email: string;
+    private value: string;
 
-    constructor(email: string) {
-        this._email = email;
+    constructor(value: string) {
+        this.isValid(value);
+        this.value = value;
     }
 
-    private isValidEmail(email: string): boolean {
+    private isValid(email: string): boolean {
         return email.includes('@') || email.includes('.')
-    }
-
-    public get value(): string {
-        return this._email;
-    }
-
-    public isValid(): boolean {
-        return this.isValidEmail(this._email);
     }
 }

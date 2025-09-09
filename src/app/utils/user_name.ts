@@ -1,19 +1,12 @@
 export default class UserName {
-    private _name: string;
+    private value: string;
 
-    constructor(name: string) {
-        this._name = name;
+    constructor(value: string) {
+        this.isValid(value);
+        this.value = value;
     }
 
-    private isValidName(name: string): boolean {
+    private isValid(name: string): boolean {
         return name.length > 3 && typeof name === 'string';
-    }
-
-    public get value(): string {
-        return this._name;
-    }
-
-    public isValid(): boolean {
-        return this.isValidName(this._name);
     }
 }

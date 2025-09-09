@@ -1,19 +1,12 @@
 export default class UserId {
-    private _id: string;
+    private value: string;
 
-    constructor(id: string) {
-        this._id = id;
+    constructor(value: string) {
+        this.isValid(value);
+        this.value = value;
     }
 
-    private isValidId(id: string): boolean {
+    private isValid(id: string): boolean {
         return typeof id === 'string' && id.length > 0;
-    }
-
-    public get value(): string {
-        return this._id;
-    }
-
-    public isValid(): boolean {
-        return this.isValidId(this._id);
     }
 }

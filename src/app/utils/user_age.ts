@@ -1,19 +1,12 @@
 export default class UserAge {
-    private _age: number;
+    private value: number;
 
-    constructor(age: number) {
-        this._age = age;
+    constructor(value: number) {
+        this.isValid(value);
+        this.value = value;
     }
 
-    private isValidAge(age: number): boolean {
+    private isValid(age: number): boolean {
         return age > 0 && typeof age === 'number';
-    }
-
-    public get value(): number {
-        return this._age;
-    }
-
-    public isValid(): boolean {
-        return this.isValidAge(this._age);
     }
 }
