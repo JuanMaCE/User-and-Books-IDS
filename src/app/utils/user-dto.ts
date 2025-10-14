@@ -7,6 +7,7 @@ export default class UserDto {
     public dpi: string;
     public name: string;
     public age: string; 
+    public password: string;
     public isValid: string;
 
     constructor(data: User){
@@ -15,6 +16,7 @@ export default class UserDto {
         this.dpi = data.get_Dpi()
         this.name = data.get_Name();    
         this.age = data.get_Age();
+        this.password = data.get_Password();
         this.isValid = data.get_IsValid();
     }
 
