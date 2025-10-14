@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import UserCreator from "../utils/user-creator";
-import PostgresUserRepository from "../utils/postgres-user-repository";
-import PostgresRepositorySelector from "../utils/postgres-repository-selector";
+import UserCreator from "../utils/users/user-creator";
+import PostgresUserRepository from "../utils/users/postgres-user-repository";
+import PostgresRepositorySelector from "../utils/users/postgres-repository-selector";
 
 export async function POST(request: NextRequest) {
     try{

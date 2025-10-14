@@ -8,8 +8,8 @@ export default class UserCreator {
         this.repository = repository;
     }
 
-    public async run(email: string, dpi: string, name: string, age: string, isValid: string) {
-        const params = { email, dpi, name, age, isValid }
+    public async run(email: string, dpi: string, name: string, age: string, password: string, isactivated: string) {
+        const params = { email, dpi, name, age, password, isactivated }
         const user = User.create(params);
         await this.repository.save(user);
     }

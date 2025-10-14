@@ -1,6 +1,6 @@
-import PostgresRepositorySelector from "@/app/utils/postgres-repository-selector";
-import PostgresUserRepository from "@/app/utils/postgres-user-repository";
-import UserFinder from "@/app/utils/user-finder";
+import PostgresRepositorySelector from "@/app/utils/users/postgres-repository-selector";
+import PostgresUserRepository from "@/app/utils/users/postgres-user-repository";
+import UserFinder from "@/app/utils/users/user-finder";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest, { params }: { params: { id: string } }){
