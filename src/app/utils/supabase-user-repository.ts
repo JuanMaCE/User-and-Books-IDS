@@ -5,25 +5,26 @@ import UserRepository from "./user-repository";
 export default class SupabaseUserRepository implements UserRepository{
     private readonly sql: Sql;
     constructor() {
-        const connectionString = 
-                'postgresql://postgres.nviffybhwodpqzwumhtx:IbanezGio2808*@aws-0-us-east-1.pooler.supabase.com:6543/postgres'
+        const connectionString = 'postgresql://postgres.nviffybhwodpqzwumhtx:IbanezGio28*@aws-0-us-east-1.pooler.supabase.com:6543/postgres'
         this.sql = postgres(connectionString);
     }
 
     async save(user: User){
         try{
             const userdto = user.toPrimitives();
+            const id = Number(userdto.id);
             const email = userdto.email;
             const dpi = userdto.dpi;
             const name = userdto.name;
-            const age = userdto.age;
+            const age = Number(userdto.age);
             const isValid = userdto.isValid;
+            const isValidBool = isValid.toLowerCase() === "true";
 
-            await this.sql`
-                INSERT INTO "Users" (email, dpi, name, age, isValid)
-                VALUES (${email}, ${dpi}, ${name}, ${age}, ${isValid});`;
-        }catch{
-            throw new Error("Failed to save email");
+
+
+            await this.sql`INSERT INTO "Users" (id, email, dpi, name, age, isValid) VALUES (${id}, ${email}, ${dpi}, ${name}, ${age}, ${isValidBool})`;
+        }catch (err){
+            throw err
         }
     }
 

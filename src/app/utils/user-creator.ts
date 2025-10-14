@@ -9,7 +9,8 @@ export default class UserCreator {
     }
 
     public async run(id: string, email: string, dpi: string, name: string, age: string, isValid: string){
-        const user = User.create({id, email, dpi, name, age, isValid});
+        const params = {id, email, dpi, name, age, isValid}
+        const user = User.create(params);
         await this.repository.save(user);
     }
 

@@ -4,5 +4,4 @@ export default class UserIsValid {
     constructor(value: string) {
         this.value = value;
     }
-    
 }
