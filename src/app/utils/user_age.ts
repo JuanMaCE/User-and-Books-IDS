@@ -7,7 +7,7 @@ export default class UserAge {
     }
 
     private isValid(age: string) {
-        if (parseInt(age) < 12){
+        if (parseInt(age) < 18) {
             throw new Error("Edad No Valida");
         }
     }
