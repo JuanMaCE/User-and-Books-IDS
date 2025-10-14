@@ -1,14 +1,14 @@
-import { User } from "./user";
 import UserDto from "./user-dto";
-import UserEmail from "./user_email";
+import NotificationSender from "./notification-sender";
 
-class EmailNotificationSender{
+export default class EmailNotificationSender implements NotificationSender {
     private client =  "correodeempresa@gmail.com"; 
 
-    constructor(){
-    }
-
-    public send(user: UserDto){
-        
+    async send(user: UserDto){
+        try{
+            console.log("Enviando correo a " + user.email);            
+        }catch{
+            throw new Error("Failed to save email");
+        } 
     }
 }   

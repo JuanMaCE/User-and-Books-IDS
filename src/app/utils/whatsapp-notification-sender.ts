@@ -1,15 +1,16 @@
 import UserDto from "./user-dto";
+import NotificationSender from "./notification-sender";
 
 
-class WhatsappNotificationSender {
+export default class WhatsappNotificationSender implements NotificationSender {
     private client = "wahtsappnumber";
 
-    constructor() {
-    
-    }
-
-    send(user: UserDto) {
-        // Lógica para enviar notificación por WhatsApp
+    async send(user: UserDto){
+        try{
+            console.log("Enviando correo a " + user.email);            
+        }catch{
+            throw new Error("Failed to save email");
+        } 
     }
 
 }

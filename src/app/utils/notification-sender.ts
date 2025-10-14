@@ -1,7 +1,5 @@
-import { User } from "./user";
+import UserDto from "./user-dto";
 
 export default interface UserRepository {
-    save(user: User): Promise<void>;
-
-    find(id: string): Promise<void>;
+    send(user: UserDto): Promise <void>;
 }
