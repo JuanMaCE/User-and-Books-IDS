@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
         
         const registrar = new UserCreator(repository);
 
-        await registrar.run(data.email, data.dpi, data.name, data.age, data.isValid);
+        await registrar.run(data.email, data.dpi, data.name, data.age, data.password, data.isValid);
 
         NextResponse.json({
             message: 'User saved succesfully'
