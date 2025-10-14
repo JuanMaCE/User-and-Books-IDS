@@ -3,7 +3,8 @@ import UserEmail from './user_email';
 import UserDpi from './user_dpi';
 import UserName from './user_name';
 import UserAge from './user_age';
-import UserIsValid from './user_is_valid';
+import UserIsActivated from './user_is_activated';
+import UserPassword from './user_password';
 import UserDto from './user-dto';
 
 
@@ -12,20 +13,23 @@ export class User {
   private dpi: UserDpi;
   private name: UserName;
   private age: UserAge;
-  private isValid: UserIsValid;
+  private password: UserPassword;
+  private isactivated: UserIsActivated;
 
   constructor(
     email: UserEmail,
     dpi: UserDpi,
     name: UserName,
     age: UserAge,
-    isValid: UserIsValid
+    password: UserPassword,
+    isactivated: UserIsActivated
   ) {
     this.email = email
     this.dpi = dpi
     this.name = name
     this.age = age
-    this.isValid = isValid
+    this.password = password
+    this.isactivated = isactivated
   }
 
 
@@ -35,14 +39,16 @@ export class User {
     dpi: string;
     name: string;
     age: string;
-    isValid: string;
+    password: string;
+    isactivated: string;
   }): User {
     return new User(
       new UserEmail(params.email),
       new UserDpi(params.dpi),
       new UserName(params.name),
       new UserAge(params.age),
-      new UserIsValid(params.isValid)
+      new UserPassword(params.password),
+      new UserIsActivated(params.isactivated)
     );
   }
 
@@ -51,14 +57,16 @@ export class User {
     dpi: string;
     name: string;
     age: string;
-    isValid: string;
+    password: string;
+    isactivated: string;
   }): User {
     return new User(
       new UserEmail(params.email),
       new UserDpi(params.dpi),
       new UserName(params.name),
       new UserAge(params.age),
-      new UserIsValid(params.isValid)
+      new UserPassword(params.password),
+      new UserIsActivated(params.isactivated)
     );
   }
 
