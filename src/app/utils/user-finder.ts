@@ -1,3 +1,4 @@
+import { User } from "./user";
 import UserRepository from "./user-repository";
 
 export default class UserFinder {
@@ -7,7 +8,8 @@ export default class UserFinder {
         this.repository = repository;
     }
 
-    public async run(id: string) {
-        await this.repository.find(id);
+    public async run(id: string): Promise<User> {
+        const user = await this.repository.find(id);
+        return user;
     }
 }

@@ -14,7 +14,7 @@ export class User {
   private name: UserName;
   private age: UserAge;
   private password: UserPassword;
-  private isactivated: UserIsActivated;
+  public isactivated: UserIsActivated;
 
   constructor(
     email: UserEmail,

@@ -28,7 +28,11 @@ export default class PostgresUserRepository implements UserRepository {
 
     async find(id: string) {
         try {
-            await this.sql`SELECT * FROM "Users" WHERE id=${id}`;
+            const rows = await this.sql`SELECT * FROM "Users" WHERE id=${id}`;
+            if (rows.length === 0) throw new Error("User not found");
+
+            const row = rows[0];
+            return new User(row.id, row.email, row.dpi, row.name, row.age, row.isValid);
         } catch {
             throw new Error("User not found");
         }
