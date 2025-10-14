@@ -7,7 +7,7 @@ export default class UserName {
     }
 
     private isValid(name: string) {
-        if(name.length < 3 && typeof name !== 'string'){
+        if (name.length < 3 && typeof name !== 'string') {
             throw new Error("Formato de nombre no valido");
         }
     }

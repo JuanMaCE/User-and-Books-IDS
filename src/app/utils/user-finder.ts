@@ -1,13 +1,13 @@
 import UserRepository from "./user-repository";
 
-export default class UserFinder{
+export default class UserFinder {
     private readonly repository: UserRepository;
 
-    constructor(repository: UserRepository){
+    constructor(repository: UserRepository) {
         this.repository = repository;
     }
 
-    public async run(id: string){
+    public async run(id: string) {
         await this.repository.find(id);
     }
 }
