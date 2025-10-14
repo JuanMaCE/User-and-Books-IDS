@@ -2,7 +2,7 @@ import postgres, { Sql } from "postgres";
 import { User } from "./user";
 import UserRepository from "./user-repository";
 
-export default class SupabaseUserRepository implements UserRepository {
+export default class PostgresUserRepository implements UserRepository {
     private readonly sql: Sql;
     constructor() {
         const connectionString = ''
@@ -20,7 +20,7 @@ export default class SupabaseUserRepository implements UserRepository {
             const isValidBool = isValid.toLowerCase() === "true";
 
 
-            await this.sql`INSERT INTO "Users" (id, email, dpi, name, age, isValid) VALUES ( ${email}, ${dpi}, ${name}, ${age}, ${isValidBool})`;
+            await this.sql`INSERT INTO "Users" (email, dpi, name, age, isValid) VALUES ( ${email}, ${dpi}, ${name}, ${age}, ${isValidBool})`;
         } catch (err) {
             throw err
         }

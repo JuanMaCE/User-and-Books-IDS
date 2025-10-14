@@ -1,16 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import UserCreator from "../utils/user-creator";
-import SupabaseUserRepository from "../utils/supabase-user-repository";
+import PostgresUserRepository from "../utils/postgres-user-repository";
+import PostgresRepositorySelector from "../utils/postgres-repository-selector";
 
 export async function POST(request: NextRequest) {
     try{
         const data = await request.json();
 
-        const repository = new SupabaseUserRepository();
+        const selector = new PostgresRepositorySelector();
+
+        const repository = await selector.getRepository();
         
         const registrar = new UserCreator(repository);
 
-        await registrar.run(data.id, data.email, data.dpi, data.name, data.age, data.isValid);
+        await registrar.run(data.email, data.dpi, data.name, data.age, data.isValid);
 
         NextResponse.json({
             message: 'User saved succesfully'
